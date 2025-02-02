@@ -27,3 +27,27 @@ const quotes = [
     function addQuote() {
       const text = newQuoteText.value;
       const category = (newQuoteCategory.value);
+      // JavaScript code to check for the existence of requisite files
+function checkFilesExist(files) {
+    const existingFiles = [];
+  
+    files.forEach(file => {
+      fetch(file)
+        .then(response => {
+          if (response.ok) {
+            existingFiles.push(file);
+            console.log(`File exists: ${file}`);
+          } else {
+            console.warn(`File not found: ${file}`);
+          }
+        })
+        .catch(error => console.error(`Error checking file: ${file}`, error));
+    });
+  }
+  
+  // List of files to check
+  const filesToCheck = ['index.html', 'script.js'];
+  
+  // Check for the existence of the files
+  checkFilesExist(filesToCheck);
+  
