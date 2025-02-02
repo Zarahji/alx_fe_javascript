@@ -5,22 +5,25 @@ const quotes = [
     { text: "The only way to do great work is to love what you do.", category: "Inspiration" },
     { text: "Life is what happens when you're busy making other plans.", category: "Life" }
   ];
-  function showRandomQuote() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    const quote = quotes[randomIndex];
-    document.getElementById('quoteDisplay').innerText = `${quote.text} - ${quote.category}`;
-  }
-  function addQuote() {
-    const quoteText = document.getElementById('newQuoteText').value;
-    const quoteCategory = document.getElementById('newQuoteCategory').value;
-    if (quoteText && quoteCategory) {
-      quotes.push({ text: quoteText, category: quoteCategory });
-      document.getElementById('newQuoteText').value = '';
-      document.getElementById('newQuoteCategory').value = '';
-      alert('Quote added successfully!');
-    } else {
-      alert('Please enter both a quote and a category.');
+  javascript
+  document.addEventListener('DOMContentLoaded', () => {
+    const quotes = [
+      { text: 'The best way to predict the future is to invent it.', category: 'Inspiration' },
+      { text: 'Life is what happens when you’re busy making other plans.', category: 'Life' },
+      // Add more quotes here
+    ];
+  
+    const quoteDisplay = document.getElementById('quoteDisplay');
+    const newQuoteButton = document.getElementById('newQuote');
+    const newQuoteText = document.getElementById('newQuoteText');
+    const newQuoteCategory = document.getElementById('newQuoteCategory');
+  
+    function showRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quote = quotes[randomIndex];
+      quoteDisplay.innerHTML = `<p>${quote.text}</p><p><em>Category: ${quote.category}</em></p>`;
     }
-  }
-  document.getElementById('newQuote').addEventListener('click', showRandomQuote);
-      
+  
+    function addQuote() {
+      const text = newQuoteText.value;
+      const category = (newQuoteCategory.value);
